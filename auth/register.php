@@ -1,9 +1,19 @@
-<?php require_once __DIR__ . '/../includes/header.php'; ?>
+<?php
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../auth/referral_capture.php';
+
+$sponsorId = captureReferral();
+$sponsor = $sponsorId ? user_by('id', $sponsorId) : null;
+?>
 <h2>Register</h2>
 <?php if ($msg = flash('error')): ?>
     <div class="alert alert-danger"><?= $msg ?></div>
 <?php endif; ?>
-<form action="register_process.php" method="POST" class="needs-validation" novalidate>
+<?php if ($sponsor): ?>
+    <div class="alert alert-info">Referrer: <?= htmlspecialchars($sponsor['full_name']) ?></div>
+<?php endif; ?>
+<form action="register_process.php<?= $sponsor ? '?ref=' . $sponsor['username'] : '' ?>" method="POST"
+    class="needs-validation" novalidate>
     <input type="hidden" name="csrf" value="<?= csrf_token() ?>">
     <div class="mb-3">
         <label>Full Name</label>

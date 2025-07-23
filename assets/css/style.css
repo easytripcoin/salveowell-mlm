@@ -9,3 +9,11 @@ body {
 .navbar-brand {
     font-weight: 700;
 }
+
+.placeholder {
+    width: 10rem;
+    height: 5rem;
+    border: 2px dashed #ccc;
+    margin: .5rem;
+    border-radius: .5rem;
+}
