@@ -18,4 +18,12 @@ require_once __DIR__ . '/../includes/header.php';
         <a href="genealogy.php" class="btn btn-outline-success w-100">View Genealogy</a>
     </div>
 </div>
+<div class="row mt-4">
+    <div class="col-md-6 mb-3">
+        <a href="<?= BASE_URL ?>products/catalog.php" class="btn btn-outline-info w-100">Shop Products</a>
+    </div>
+    <div class="col-md-6 mb-3">
+        <a href="<?= BASE_URL ?>products/cart.php" class="btn btn-outline-warning w-100">View Cart</a>
+    </div>
+</div>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
